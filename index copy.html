@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timesheet</title>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+		<div class="container">
+			<div class="jumbotron" style="background-color: blue; color: white">
+			<h1 class="text-center">Timesheet</h1>
+		</div>
+		<div class="panel-default panel">
+		 <div class="panel-heading">Employee Details</div>
+		  <h2 class="panel-body"></h2>
+		  </div>
+		<div>
+		
+            <form role="form">
+              <div class="form-group">
+                <label for="name-input">Name:</label>
+                <input class="form-control" id="name-input" type="text">
+              </div>
+              <div class="form-group">
+                <label for="email-input">Email:</label>
+                <input class="form-control" id="email-input" type="email">
+              </div>
+              <div class="form-group">
+                <label for="age-input">Age:</label>
+                <input class="form-control" id="age-input" type="number">
+              </div>
+              <div class="form-group">
+                <label for="comment-input">How did you hear about us?</label>
+                <textarea class="form-control" rows="5" id="comment-input"></textarea>
+              </div>
+              <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>	
+<script type="text/javascript">
+
+
+
+
+
+	$("add-user").on("click", function(event) { event.preventDefault();  
+
+	var empName = $("#name-input").val().trim();
+
+
+	var newEmp = {
+    name: empName,
+    //role: empRole,
+    //start: empStart,
+    //rate: empRate
+  };
+
+  database.ref().push(newEmp);
+
+
+	console.log(newEmp.name);
+	//console.log(start_date);
+	//console.log(rate);
+$("#employee-table > tbody").append("<tr><td>" + empName + "</td><td>");
+
+
+});	
+
+
+
+</script>
+
+</body>
+</html>
